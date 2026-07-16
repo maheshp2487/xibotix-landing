@@ -1,11 +1,11 @@
+/* ---------- Google Fonts ---------- */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+
 @import "tailwindcss";
 
 /* ===================================================================
    XIBOTIX Design System — Global Styles & Tailwind v4 Theme
    =================================================================== */
-
-/* ---------- Google Fonts ---------- */
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
 
 /* ---------- Tailwind v4 Theme Tokens ---------- */
 @theme inline {
@@ -33,6 +33,8 @@
   --spacing-18: 4.5rem;
   --spacing-22: 5.5rem;
   --spacing-30: 7.5rem;
+  --spacing-36: 9rem;
+  --spacing-44: 11rem;
 
   /* --- Border Radius --- */
   --radius-2xl: 1rem;
@@ -55,43 +57,97 @@
 
 /* ---------- Keyframes ---------- */
 @keyframes fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fade-in-down {
-  from { opacity: 0; transform: translateY(-24px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes scale-in {
-  from { opacity: 0; transform: scale(0.92); }
-  to   { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes slide-in-left {
-  from { opacity: 0; transform: translateX(-32px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes slide-in-right {
-  from { opacity: 0; transform: translateX(32px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; }
-  50%      { opacity: 0.8; }
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-12px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 /* ---------- Base Resets ---------- */
@@ -127,13 +183,16 @@ body {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: #050816;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #1A2742;
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #3B82F6;
 }
@@ -178,49 +237,101 @@ body {
 /* ---------- Utility: Glow Effects ---------- */
 .glow-primary {
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.15),
-              0 0 60px rgba(59, 130, 246, 0.08);
+    0 0 60px rgba(59, 130, 246, 0.08);
 }
 
 .glow-accent {
   box-shadow: 0 0 20px rgba(34, 211, 238, 0.15),
-              0 0 60px rgba(34, 211, 238, 0.08);
+    0 0 60px rgba(34, 211, 238, 0.08);
 }
 
-/* ---------- Utility: Section ---------- */
-.section-padding {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+/* ---------- Section Spacing ---------- */
+.section-spacing {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
-@media (min-width: 640px) {
-  .section-padding {
-    padding-left: 2rem;
-    padding-right: 2rem;
+@media (min-width: 768px) {
+  .section-spacing {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .section-padding {
-    padding-left: 4rem;
-    padding-right: 4rem;
+  .section-spacing {
+    padding-top: 3.75rem;
+    padding-bottom: 3.75rem;
   }
 }
 
-@media (min-width: 1280px) {
-  .section-padding {
-    padding-left: 5rem;
-    padding-right: 5rem;
-  }
+/* ---------- Section Divider ---------- */
+.section-divider {
+  position: relative;
 }
 
-/* ---------- Utility: Divider Gradient ---------- */
-.divider-gradient {
+.section-divider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(80%, 600px);
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(59, 130, 246, 0.3),
-    rgba(34, 211, 238, 0.3),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(59, 130, 246, 0.12) 30%,
+      rgba(34, 211, 238, 0.08) 70%,
+      transparent);
+}
+
+/* ---------- 3D Flip Card ---------- */
+.flip-card-perspective {
+  perspective: 1200px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* ---------- Premium Hover Glow ---------- */
+.hover-glow {
+  position: relative;
+}
+
+.hover-glow::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(34, 211, 238, 0.05));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hover-glow:hover::after {
+  opacity: 1;
 }

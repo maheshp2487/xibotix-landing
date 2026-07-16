@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-text">
+      <body className="min-h-full flex flex-col bg-background text-text overflow-x-hidden">
         {children}
       </body>
     </html>

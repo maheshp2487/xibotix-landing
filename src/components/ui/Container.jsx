@@ -3,31 +3,27 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Container — Responsive max-width wrapper.
+ * Container — Single centered max-width wrapper (1360px).
+ *
+ * Every section uses this same container to ensure
+ * perfect horizontal alignment across the entire page.
  *
  * Props:
- *   - size:  "sm" | "md" | "lg" | "xl" | "full" (default: "lg")
  *   - as:    HTML element tag (default: "div")
  *   - children, className, ...rest
  */
-const maxWidthStyles = {
-  sm: "max-w-3xl",
-  md: "max-w-5xl",
-  lg: "max-w-7xl",
-  xl: "max-w-[90rem]",
-  full: "max-w-full",
-};
-
 export default function Container({
   children,
-  size = "lg",
   as: Tag = "div",
   className,
   ...props
 }) {
   return (
     <Tag
-      className={cn("mx-auto w-full section-padding", maxWidthStyles[size], className)}
+      className={cn(
+        "mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10",
+        className
+      )}
       {...props}
     >
       {children}

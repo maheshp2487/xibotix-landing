@@ -22,27 +22,27 @@ export default function SectionHeading({
   return (
     <div
       className={cn(
-        "mb-16 md:mb-20",
+        "mb-12 sm:mb-14 md:mb-16",
         align === "center" && "text-center",
         align === "left" && "text-left",
         className
       )}
     >
       {tag && (
-        <span className="inline-block mb-4 px-4 py-1.5 rounded-full text-xs font-medium tracking-widest uppercase bg-primary-light text-primary border border-primary/20 font-body">
+        <span className="inline-block mb-4 sm:mb-5 px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-medium tracking-[0.15em] uppercase bg-primary-light text-primary border border-primary/20 font-body">
           {tag}
         </span>
       )}
 
-      <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight text-text">
+      <h2 className="font-heading text-[1.75rem] sm:text-[2rem] md:text-4xl lg:text-[2.75rem] font-bold tracking-[-0.02em] leading-tight text-text">
         {title}
       </h2>
 
       {subtitle && (
         <p
           className={cn(
-            "mt-5 text-text-secondary text-base md:text-lg leading-relaxed font-body",
-            align === "center" && "max-w-2xl mx-auto"
+            "mt-4 sm:mt-5 text-text-secondary text-[15px] sm:text-base md:text-lg leading-relaxed font-body",
+            align === "center" && "max-w-xl sm:max-w-2xl mx-auto"
           )}
         >
           {subtitle}

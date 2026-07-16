@@ -19,7 +19,7 @@ const variantStyles = {
   primary:
     "bg-primary text-white hover:bg-primary-hover shadow-lg shadow-primary/20 hover:shadow-primary/40",
   secondary:
-    "bg-transparent border border-surface-border text-text hover:border-primary hover:text-primary",
+    "bg-transparent border border-surface-border text-text hover:border-primary/60 hover:text-primary",
   ghost:
     "bg-transparent text-text-secondary hover:text-text hover:bg-surface-light",
   accent:
@@ -27,9 +27,9 @@ const variantStyles = {
 };
 
 const sizeStyles = {
-  sm: "px-4 py-2 text-sm",
-  md: "px-6 py-3 text-sm",
-  lg: "px-8 py-4 text-base",
+  sm: "px-4 py-2 text-[13px] min-h-[36px]",
+  md: "px-6 py-2.5 text-sm min-h-[40px]",
+  lg: "px-7 py-3 text-[15px] min-h-[44px]",
 };
 
 const Button = forwardRef(function Button(
@@ -48,7 +48,7 @@ const Button = forwardRef(function Button(
       ref={ref}
       disabled={disabled}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-xl font-body font-medium",
+        "inline-flex items-center justify-center gap-2 rounded-xl font-body font-medium whitespace-nowrap",
         "transition-all duration-300 ease-out",
         "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
         "disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none",
