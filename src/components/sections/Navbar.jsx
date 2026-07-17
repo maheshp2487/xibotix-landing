@@ -28,7 +28,11 @@ export default function Navbar() {
 
   /* ---- Lock body scroll when mobile menu is open ---- */
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
     return () => {
       document.body.style.overflow = "";
     };
@@ -64,7 +68,7 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out",
         scrolled
-          ? "bg-background/40 backdrop-blur-2xl border-b border-white/5 py-3"
+          ? "bg-[rgba(5,8,22,0.85)] backdrop-blur-2xl border-b border-white/5 py-3"
           : "bg-transparent py-5 lg:py-8"
       )}
       role="banner"
@@ -133,21 +137,15 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 lg:hidden"
+            className="fixed inset-0 z-40 lg:hidden overflow-y-auto bg-[rgba(5,8,22,0.98)] backdrop-blur-3xl"
           >
-            {/* Backdrop */}
-            <div
-              className="absolute inset-0 bg-background/95 backdrop-blur-3xl"
-              aria-hidden="true"
-            />
-
             {/* Content */}
             <motion.nav
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="relative z-10 flex flex-col items-center justify-center min-h-[100dvh] gap-8 px-8 py-20 overflow-y-auto"
+              className="min-h-full flex flex-col items-center justify-center gap-8 px-8 py-24"
               aria-label="Mobile navigation"
             >
               {navLinks.map((link, i) => (
