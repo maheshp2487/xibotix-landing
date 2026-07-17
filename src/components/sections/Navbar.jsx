@@ -64,16 +64,17 @@ export default function Navbar() {
   );
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out",
-        scrolled
-          ? "bg-[rgba(5,8,22,0.85)] backdrop-blur-2xl border-b border-white/5 py-3"
-          : "bg-transparent py-5 lg:py-8"
-      )}
-      role="banner"
-    >
-      <Container>
+    <>
+      <header
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out",
+          scrolled
+            ? "bg-[rgba(5,8,22,0.85)] backdrop-blur-2xl border-b border-white/5 py-3"
+            : "bg-transparent py-5 lg:py-8"
+        )}
+        role="banner"
+      >
+        <Container>
         <nav
           className="flex items-center justify-between"
           aria-label="Primary navigation"
@@ -127,7 +128,7 @@ export default function Navbar() {
             {mobileOpen ? <X className="w-6 h-6 stroke-[1.5]" /> : <Menu className="w-6 h-6 stroke-[1.5]" />}
           </button>
         </nav>
-      </Container>
+      </header>
 
       {/* ---- Mobile Menu ---- */}
       <AnimatePresence>
@@ -187,6 +188,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
