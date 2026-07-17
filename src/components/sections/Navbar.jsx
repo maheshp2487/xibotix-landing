@@ -128,6 +128,7 @@ export default function Navbar() {
             {mobileOpen ? <X className="w-6 h-6 stroke-[1.5]" /> : <Menu className="w-6 h-6 stroke-[1.5]" />}
           </button>
         </nav>
+        </Container>
       </header>
 
       {/* ---- Mobile Menu ---- */}
